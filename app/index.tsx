@@ -113,46 +113,49 @@ export default function Index() {
       </View>
 
       {/* Nav Bar */}
-      <View style={styles.navContainer}>
-        <Feather name="home" size={24} color="black" />
-        <FontAwesome
-          style={{ alignItems: "center" }}
-          name="film"
-          size={22}
-          color="black"
-        />
-        <View style={styles.navSelected}>
+      <View style={styles.navWrapper}>
+
+        <View style={styles.navContainer}>
+          <Feather name="home" size={24} color="black" />
+          <FontAwesome
+            style={{ alignItems: "center" }}
+            name="film"
+            size={22}
+            color="black"
+            />
+          <View style={styles.navSelected}>
+            <MaterialCommunityIcons
+              name="storefront-outline"
+              size={26}
+              color="#1b59dd"
+              />
+          </View>
           <MaterialCommunityIcons
-            name="storefront-outline"
+            name="account-group-outline"
             size={26}
-            color="#1b59dd"
-          />
+            color="black"
+            />
+          <Ionicons name="notifications-outline" size={25} color="black" />
+          <View>
+            <Image
+              style={styles.profilePic}
+              source={require("../assets/images/profilepic.jpg")}
+              contentFit="cover"
+              />
+            <Feather name="circle" size={26} color="black" />
+          </View>
         </View>
-        <MaterialCommunityIcons
-          name="account-group-outline"
-          size={26}
-          color="black"
-        />
-        <Ionicons name="notifications-outline" size={25} color="black" />
-        <View>
-          <Image
-            style={styles.profilePic}
-            source={require("../assets/images/profilepic.jpg")}
-            contentFit="cover"
-          />
-          <Feather name="circle" size={26} color="black" />
-        </View>
-      </View>
-      
-      {/* Im funny */}
-      <Pressable onPress = {() => {
-        Alert.alert("Alert", "Alert Button Pressed");
-        Linking.openURL("https://youtu.be/dQw4w9WgXcQ?si=YZkrDWk-3xINUDVv");
+        
+        {/* Im funny */}
+        <Pressable onPress = {() => {
+          Alert.alert("Alert", "Alert Button Pressed");
+          Linking.openURL("https://youtu.be/2qBlE2-WL60?si=spdu69yFiOaCq5YN");
         }}>
-        <View style={styles.alert}>
-          <Text style={styles.alertText}>ALERT</Text>
-        </View>
-      </Pressable>
+          <View style={styles.alert}>
+            <Text style={styles.alertText}>ALERT</Text>
+          </View>
+        </Pressable>
+      </View>
 
       {/* </ScrollView> */}
     </SafeAreaView>
@@ -228,10 +231,10 @@ const styles = StyleSheet.create({
   gridContainer: {
     flexDirection: "row",
     flexWrap: "wrap",
-    justifyContent: "space-between",
+    justifyContent: "space-between"
   },
   card: {
-    width: "48%",
+    width: "49.5%",
   },
 
   listed: {
@@ -247,8 +250,8 @@ const styles = StyleSheet.create({
   },
 
   image: {
-    width: 208,
-    height: 208,
+    width: "100%",
+    aspectRatio: 1,
     borderColor: "rgba(187, 180, 162, 0.75)",
     borderWidth: 0.5,
   },
@@ -279,17 +282,20 @@ const styles = StyleSheet.create({
     fontWeight: 800,
   },
 
+  // ----------------navigation bar
+  navWrapper: {
+    position: "absolute",
+    bottom: 35,
+    left: 12,
+    width: "95%",
+  },
   navContainer: {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-around",
-    width: "95%",
     height: 45,
-    left: 12,
-    position: "absolute",
     backgroundColor: "white",
     borderRadius: 20,
-    bottom: 35,
   },
 
   navSelected: {
@@ -312,15 +318,16 @@ const styles = StyleSheet.create({
     borderRadius: 50,
   },
 
-  //--------------------------------------- alert
+  //--------------------------------------- alert button
   alert: {
     position: "absolute",
-    right: 20,
-    bottom: 35,
-    padding: 8,
-    zIndex: 6,
+    right: 10,
+    bottom: 50,
+    paddingHorizontal: 10,
+    paddingVertical: 4,
     borderRadius: 50,
     backgroundColor: "#b61313",
+    zIndex: 10,
   },
 
   alertText: {
