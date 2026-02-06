@@ -14,7 +14,7 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 export default function Index() {
   return (
     <SafeAreaView style={{flex:1  }}>
-      {/* <ScrollView> Only add if you want it to look exact to screenshot of iPhone14 instead of android*/}
+      {/* <ScrollView> Only add if you want it to look exact to screenshot of submission instead of android*/}
       {/* Header */}
       <View style={styles.headline}>
         <Feather name="menu" size={24} color="black" />
@@ -312,6 +312,7 @@ const styles = StyleSheet.create({
     borderRadius: 50,
   },
 
+  //--------------------------------------- alert
   alert: {
     position: "absolute",
     right: 20,
