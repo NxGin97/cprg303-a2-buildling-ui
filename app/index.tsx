@@ -2,6 +2,7 @@ import React from "react";
 import { Image } from "expo-image";
 import { Pressable, StyleSheet, Text, View, Linking, Alert } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+
 // import { ScrollView } from "react-native";
 
 import Feather from "@expo/vector-icons/Feather";
@@ -14,14 +15,15 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 export default function Index() {
   return (
     <SafeAreaView style={{flex:1  }}>
-      {/* <ScrollView> Only add if you want it to look exact to screenshot of submission instead of android*/}
       {/* Header */}
       <View style={styles.headline}>
-        <Feather name="menu" size={24} color="black" />
+        <Feather name="menu" size={30} color="black" />
         <Text style={styles.marketplaceText}>Marketplace</Text>
-        <FontAwesome6 name="facebook-messenger" size={24} color="black" />
-        <Ionicons name="person-outline" size={24} color="black" />
-        <Ionicons name="search-outline" size={24} color="black" />
+        <View style={styles.iconGap}>
+          <FontAwesome6 name="facebook-messenger" size={24} color="black" />
+          <Ionicons name="person-outline" size={24} color="black" />
+          <Ionicons name="search-outline" size={24} color="black" />
+        </View>
       </View>
 
       {/* Tabs */}
@@ -49,9 +51,11 @@ export default function Index() {
             source={require("../assets/images/chairs.jpg")}
             contentFit="cover"
           />
-          <Text style={styles.listed}>Just Listed</Text>
+          <Text style={styles.listed}>Just listed</Text>
           <Text style={[styles.description, styles.descriptionLeft]}>
-            Free • Bar Stools
+            Free 
+            <Text style={styles.dot}> • </Text>
+            Bar stools
           </Text>
         </View>
         <View style={styles.card}>
@@ -60,8 +64,10 @@ export default function Index() {
             source={require("../assets/images/sweater.jpg")}
             contentFit="cover"
           />
-          <Text style={styles.listed}>Just Listed</Text>
-          <Text style={styles.description}>$1 • Closet Cleanout</Text>
+          <Text style={styles.listed}>Just listed</Text>
+          <Text style={styles.description}>$1 
+          <Text style={styles.dot}> • </Text>
+          Closet Cleanout</Text>
         </View>
         <View style={styles.card}>
           <Image
@@ -69,10 +75,12 @@ export default function Index() {
             source={require("../assets/images/socks.jpg")}
             contentFit="cover"
           />
-          <Text style={styles.listed}>Just Listed</Text>
+          <Text style={styles.listed}>Just listed</Text>
           <View style={styles.descContainer}>
             <Text style={[styles.description, styles.descriptionLeft]}>
-              $10 • Mens socks $10 pe
+              $10
+            <Text style={styles.dot}> • </Text>
+            Mens socks $10 pe
             </Text>
             <Text style={styles.eclipse}>...</Text>
           </View>
@@ -83,9 +91,11 @@ export default function Index() {
             source={require("../assets/images/plant.jpg")}
             contentFit="cover"
           />
-          <Text style={styles.listed}>Just Listed</Text>
+          <Text style={styles.listed}>Just listed</Text>
           <View style={styles.descContainer}>
-            <Text style={styles.description}>$10 • Tropical Plants in W </Text>
+            <Text style={styles.description}>$10
+            <Text style={styles.dot}> • </Text>
+            Tropical Plants in W </Text>
             <Text style={styles.eclipse}>...</Text>
           </View>
         </View>
@@ -96,8 +106,10 @@ export default function Index() {
             contentFit="cover"
           />
           <View style={styles.descContainer}>
-            <Text style={[styles.description, styles.descriptionLeft]}>
-              $25 <Text style={styles.strike}>$30</Text> • Oversized plu
+            <Text style={[styles.description, styles.descriptionLeft]}> $25 
+              <Text style={styles.strike}>$30</Text>
+              <Text style={styles.dot}> • </Text>
+            Oversized plu
             </Text>
             <Text style={styles.eclipse}>...</Text>
           </View>
@@ -108,7 +120,9 @@ export default function Index() {
             source={require("../assets/images/pinksweater.jpg")}
             contentFit="cover"
           />
-          <Text style={styles.description}>$10 • woman knit</Text>
+          <Text style={styles.description}>$10
+          <Text style={styles.dot}> • </Text>
+          woman knit</Text>
         </View>
       </View>
 
@@ -116,37 +130,25 @@ export default function Index() {
       <View style={styles.navWrapper}>
 
         <View style={styles.navContainer}>
-          <Feather name="home" size={24} color="black" />
-          <FontAwesome
-            style={{ alignItems: "center" }}
-            name="film"
-            size={22}
-            color="black"
+          <Feather name="home" size={28} color="black" />
+          <FontAwesome style={{ alignItems: "center" }} name="film" size={22} color="black"
             />
           <View style={styles.navSelected}>
-            <MaterialCommunityIcons
-              name="storefront-outline"
-              size={26}
-              color="#1b59dd"
-              />
+            <MaterialCommunityIcons name="storefront-outline" size={28} color="#2b65e0"/>
           </View>
-          <MaterialCommunityIcons
-            name="account-group-outline"
-            size={26}
-            color="black"
-            />
-          <Ionicons name="notifications-outline" size={25} color="black" />
+          <MaterialCommunityIcons name="account-group-outline" size={28} color="black"/>
+          <Ionicons name="notifications-outline" size={28} color="black" />
           <View>
             <Image
               style={styles.profilePic}
               source={require("../assets/images/profilepic.jpg")}
               contentFit="cover"
               />
-            <Feather name="circle" size={26} color="black" />
+            <Feather name="circle" size={28} color="black" />
           </View>
         </View>
         
-        {/* Im funny */}
+        {/* Alert button */}
         <Pressable onPress = {() => {
           Alert.alert("Alert", "Alert Button Pressed");
           Linking.openURL("https://youtu.be/2qBlE2-WL60?si=spdu69yFiOaCq5YN");
@@ -156,8 +158,6 @@ export default function Index() {
           </View>
         </Pressable>
       </View>
-
-      {/* </ScrollView> */}
     </SafeAreaView>
   );
 }
@@ -169,35 +169,40 @@ const styles = StyleSheet.create({
   },
   //--------------------------------header
   headline: {
-    marginTop: 5,
+    marginTop: 8,
     flexDirection: "row",
     alignItems: "baseline",
-    gap: 15,
-    marginLeft: 15,
-    marginBottom: 10,
+    gap: 10,
+    marginLeft: 10,
+    marginBottom: 12,
+  },
+  iconGap: {
+    flexDirection: "row",
+    gap: 15, 
   },
   marketplaceText: {
-    fontWeight: 800,
-    fontSize: 24,
-    marginRight: 75,
+    fontWeight: 700,
+    fontSize: 30,
+    marginRight: 45,
   },
 
   //--------------------------navigation tabs
   tabs: {
     flexDirection: "row",
-    gap: 8,
-    marginLeft: 17,
+    gap: 5,
+    marginLeft: 13,
     borderRadius: 3,
   },
   tabItem: {
-    paddingVertical: 6,
-    paddingHorizontal: 12,
-    fontWeight: 700,
+    paddingVertical: 9,
+    paddingHorizontal: 11.5,
+    fontWeight: 600,
+    fontSize: 15,
   },
   tabItemSelected: {
-    backgroundColor: "#dce2f0",
-    color: "#1b59dd",
-    borderRadius: 15,
+    backgroundColor: "rgba(183, 212, 238, 0.4)",
+    color: "#2b65e0",
+    borderRadius: 18,
   },
 
   //-----------------------------that tiny spot right underneath the tabs
@@ -206,8 +211,8 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "baseline",
     paddingHorizontal: 13,
-    marginTop: 10,
-    marginBottom: 6,
+    marginTop: 15,
+    marginBottom: 8,
   },
 
   location: {
@@ -217,14 +222,13 @@ const styles = StyleSheet.create({
   },
 
   today: {
-    fontSize: 16,
+    fontSize: 17,
     fontWeight: 700,
   },
 
   calgary: {
-    fontSize: 14,
-    color: "#1b59dd",
-    marginRight: 15,
+    fontSize: 15,
+    color: "#2b65e0",
   },
 
   //---------------------------------grid + cards
@@ -245,14 +249,15 @@ const styles = StyleSheet.create({
     left: 10,
     fontSize: 12,
     fontWeight: 400,
-    paddingVertical: 1,
+    paddingTop: 1,
+    paddingBottom: 2,
     paddingHorizontal: 4,
   },
 
   image: {
     width: "100%",
     aspectRatio: 1,
-    borderColor: "rgba(187, 180, 162, 0.75)",
+    borderColor: "rgba(168, 164, 155, 0.5)",
     borderWidth: 0.5,
   },
 
@@ -262,9 +267,12 @@ const styles = StyleSheet.create({
   },
 
   description: {
-    marginVertical: 7,
-    fontSize: 13,
+    marginVertical: 9,
+    fontSize: 15,
     fontWeight: 500,
+  },
+  dot: {
+    fontSize: 11,
   },
 
   descriptionLeft: {
@@ -277,31 +285,33 @@ const styles = StyleSheet.create({
   },
 
   eclipse: {
-    marginTop: 4.6,
-    fontSize: 15,
-    fontWeight: 800,
+    marginTop: 9,
+    fontSize: 14,
+    fontWeight: 700,
   },
 
   // ----------------navigation bar
   navWrapper: {
     position: "absolute",
-    bottom: 35,
+    bottom: 22,
     left: 12,
-    width: "95%",
+    width: "94%",
   },
   navContainer: {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-around",
-    height: 45,
+    height: 50,
     backgroundColor: "white",
-    borderRadius: 20,
+    borderRadius: 40,
+    borderWidth: 1,
+    borderColor: "rgba(000,000,000, 0.1)",
   },
 
   navSelected: {
     width: 50,
     padding: 5,
-    backgroundColor: "#dce2f0",
+    backgroundColor: "rgba(183, 212, 238, 0.4)",
     borderRadius: 20,
     justifyContent: "center",
     alignItems: "center",
@@ -309,8 +319,8 @@ const styles = StyleSheet.create({
 
   profilePic: {
     position: "absolute",
-    top: 1,
-    left: 1, 
+    top: 2,
+    left: 2, 
     width: 24,
     height: 24,
     borderColor: "rgba(187, 180, 162, 0.75)",
@@ -319,14 +329,17 @@ const styles = StyleSheet.create({
   },
 
   //--------------------------------------- alert button
+  // alert: {
+    
+  // },
   alert: {
     position: "absolute",
     right: 10,
-    bottom: 50,
+    bottom: 55,
     paddingHorizontal: 10,
     paddingVertical: 4,
     borderRadius: 50,
-    backgroundColor: "#b61313",
+    backgroundColor: "rgba(224,003,003,0.95)",
     zIndex: 10,
   },
 
@@ -334,5 +347,6 @@ const styles = StyleSheet.create({
     color: "white",
     fontWeight: 700,
     paddingHorizontal: 5,
-  }
+  },
+
 });
